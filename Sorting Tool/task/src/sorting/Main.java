@@ -46,7 +46,7 @@ public class Main {
     }
 */
 
-/*    private static void dataTypeSelection (String dataType) {
+    private static void dataTypeSelection (String dataType) {
 
         switch (dataType) {
             case "line":
@@ -59,5 +59,5 @@ public class Main {
                 word();
                 break;
         }
-    }*/
+    }
 }
