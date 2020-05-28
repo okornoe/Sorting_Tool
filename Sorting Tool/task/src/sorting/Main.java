@@ -38,13 +38,13 @@ public class Main {
         System.out.println("Total numbers: " + listSize + ".");
         System.out.println("The greatest number: " + numberList.get(listSize - 1) + " (" + index + " time(s)).");
     }
-/*
+
 
     //Method for reading the number of lines in the user input
     private static void line () {
 
     }
-*/
+
 
     private static void dataTypeSelection (String dataType) {
 
