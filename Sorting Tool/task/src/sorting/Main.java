@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(final String[] args) {
-        //dataTypeSelection(args[1]);
+        dataTypeSelection(args[1]);
     }
 
 
