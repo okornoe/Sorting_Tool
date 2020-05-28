@@ -10,12 +10,12 @@ public class Main {
         //dataTypeSelection(args[1]);
     }
 
-/*
+
     // Method for reading the of words in the user input
     private static void word () {
 
     }
-*/
+
 
     //Method for reading the of numbers/long in the user input
     private static void number () {
