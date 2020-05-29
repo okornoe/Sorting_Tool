@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(final String[] args) {
-        dataTypeSelection("word");
+        dataTypeSelection("line");
     }
 
 
@@ -62,7 +62,26 @@ public class Main {
 
     //Method for reading the number of lines in the user input
     private static void line () {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> lineList = new ArrayList<>();
+        int countFreq = 0;
 
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            // write your code here
+            lineList.add(line);
+        }
+        int listSize = lineList.size();
+        Collections.sort(lineList);
+        for (String num : lineList) {
+            if (num.equals(lineList.get(listSize - 1))) {
+                countFreq++;
+            }
+        }
+        int percent = (countFreq/listSize) * 100;
+        System.out.println("Total lines: " + listSize + ".");
+        System.out.println("The greatest line: " + lineList.get(listSize - 1) + " (" + countFreq + " time(s))."
+                + " (" + countFreq + " time(s)), " + percent + "%");
     }
 
 
