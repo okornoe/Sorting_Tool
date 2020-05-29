@@ -7,20 +7,40 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(final String[] args) {
-        dataTypeSelection(args[1]);
+        dataTypeSelection("word");
     }
 
 
     // Method for reading the of words in the user input
     private static void word () {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> wordList = new ArrayList<>();
+        int countFreq = 0;
 
+        while (scanner.hasNext()) {
+            String word = scanner.next();
+            wordList.add(word);
+        }
+        int wordSize = wordList.size();
+        Collections.sort(wordList);
+        String longestWord = wordList.get(wordSize -1);
+        for (String word : wordList) {
+            if (word.equals(longestWord)) {
+                countFreq++;
+            }
+        }
+        int percent = (countFreq/wordSize) * 100;
+
+        System.out.println("Total numbers: " + wordSize + ".");
+        System.out.println("The greatest number: " + wordList.get(wordSize - 1)
+                + " (" + countFreq + " time(s)), " + percent + "%");
     }
 
 
     //Method for reading the of numbers/long in the user input
     private static void number () {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Long> numberList = new ArrayList();
+        ArrayList<Long> numberList = new ArrayList<>();
         int index = 0;
 
         while (scanner.hasNextLong()) {
@@ -47,17 +67,16 @@ public class Main {
 
 
     private static void dataTypeSelection (String dataType) {
-
-        switch (dataType) {
-            case "line":
-                line();
-                break;
-            case "long":
-                number();
-                break;
-            default:
-                word();
-                break;
-        }
+            switch (dataType) {
+                case "line":
+                    line();
+                    break;
+                case "long":
+                    number();
+                    break;
+                default:
+                    word();
+                    break;
+            }
     }
 }
