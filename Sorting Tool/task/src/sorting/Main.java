@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(final String[] args) {
-        dataTypeSelection("line");
+        dataTypeSelection("word");
     }
 
 
@@ -15,25 +15,34 @@ public class Main {
     private static void word () {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> wordList = new ArrayList<>();
-        int countFreq = 0;
+        double countFreq = 0;
+        int z = 1;
 
         while (scanner.hasNext()) {
-            String word = scanner.next();
+            String word = scanner.next().trim();
             wordList.add(word);
         }
         int wordSize = wordList.size();
-        Collections.sort(wordList);
-        String longestWord = wordList.get(wordSize -1);
-        for (String word : wordList) {
-            if (word.equals(longestWord)) {
+        String longestWord = wordList.get(0);
+
+        for (int i = 0; z < wordSize-1; i++,z++) {
+            //longestWord = wordList.get(i);
+            if (longestWord.length() < wordList.get(i).length()) {
+                longestWord = wordList.get(i);
+            }
+        }
+
+        for (String wordL : wordList) {
+            if (wordL.equals(longestWord)) {
                 countFreq++;
             }
         }
-        int percent = (countFreq/wordSize) * 100;
+
+        int percent = (int) ((countFreq/wordSize) * 100);
 
         System.out.println("Total numbers: " + wordSize + ".");
-        System.out.println("The greatest number: " + wordList.get(wordSize - 1)
-                + " (" + countFreq + " time(s)), " + percent + "%");
+        System.out.println("The greatest number: " + longestWord
+                + " (" + (int)countFreq + " time(s)), " + percent + "%");
     }
 
 
