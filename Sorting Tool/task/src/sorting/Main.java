@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(final String[] args) {
-        dataTypeSelection("word");
+        dataTypeSelection("line");
     }
 
 
@@ -26,7 +26,6 @@ public class Main {
         String longestWord = wordList.get(0);
 
         for (int i = 0; z < wordSize-1; i++,z++) {
-            //longestWord = wordList.get(i);
             if (longestWord.length() < wordList.get(i).length()) {
                 longestWord = wordList.get(i);
             }
@@ -73,24 +72,35 @@ public class Main {
     private static void line () {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> lineList = new ArrayList<>();
-        int countFreq = 0;
+        double countFreq = 0;
+        int z = 1;
 
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             // write your code here
             lineList.add(line);
         }
+
         int listSize = lineList.size();
-        Collections.sort(lineList);
+        String longestLine = lineList.get(0);
+
+        for (int i = 1; i < listSize ; i++, z++) {
+            if (longestLine.length() < lineList.get(i).length()) {
+                longestLine = lineList.get(i);
+            }
+        }
+
         for (String num : lineList) {
-            if (num.equals(lineList.get(listSize - 1))) {
+            if (num.equals(longestLine)) {
                 countFreq++;
             }
         }
-        int percent = (countFreq/listSize) * 100;
+
+        int percent = (int) ((countFreq/listSize) * 100);
         System.out.println("Total lines: " + listSize + ".");
-        System.out.println("The greatest line: " + lineList.get(listSize - 1) + " (" + countFreq + " time(s))."
-                + " (" + countFreq + " time(s)), " + percent + "%");
+        System.out.println("The longest line:");
+        System.out.println(longestLine);
+        System.out.println("(" + (int)countFreq + " time(s)), " + percent + "%");
     }
 
 
