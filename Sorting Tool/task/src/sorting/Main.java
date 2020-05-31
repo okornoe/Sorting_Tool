@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(final String[] args) {
-        dataTypeSelection("line");
+        dataTypeSelection(args[1]);
     }
 
 
@@ -39,9 +39,9 @@ public class Main {
 
         int percent = (int) ((countFreq/wordSize) * 100);
 
-        System.out.println("Total numbers: " + wordSize + ".");
-        System.out.println("The greatest number: " + longestWord
-                + " (" + (int)countFreq + " time(s)), " + percent + "%");
+        System.out.println("Total words: " + wordSize + ".");
+        System.out.println("The longest word: " + longestWord
+                + " (" + (int)countFreq + " time(s)), " + percent + "%).");
     }
 
 
